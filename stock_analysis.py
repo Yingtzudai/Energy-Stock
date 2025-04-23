@@ -189,7 +189,7 @@ plt.savefig("plots/year_average_closing_prices.png", dpi=300, bbox_inches='tight
 plt.show()
 
 # %%
-stock_data['price_change'] = stock_data.groupby('ticker')['close'].pct_change() # percentage change
+stock_data['price_change'] = stock_data[~stock_data['ticker'].isin(['CL=F','NG=F'])].groupby('ticker')['close'].pct_change() # percentage change
 
 plt.figure(figsize = (14, 10))
 
