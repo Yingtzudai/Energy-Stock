@@ -435,6 +435,7 @@ for ticker in tickers_names.keys():
     diag_fig = results.plot_diagnostics(figsize=(12, 8))
     diag_fig.suptitle(f"{ticker} Model Diagnostics")
     plt.tight_layout()
+    plt.savefig(f"plots/predictions/{ticker}_model_diagnostics.png", dpi=300, bbox_inches='tight')
     plt.show()
 
 # %% [markdown]
@@ -491,6 +492,7 @@ for ticker in tickers_names.keys():
     diag_fig = results.plot_diagnostics(figsize=(12, 8))
     diag_fig.suptitle(f"{ticker} Model Diagnostics")
     plt.tight_layout()
+    plt.savefig(f"plots/predictions/{ticker}_model_with_oil_diagnostics.png", dpi=300, bbox_inches='tight')
     plt.show()
 
 # %%
@@ -551,6 +553,7 @@ for ticker in tickers_names.keys():
     diag_fig = results.plot_diagnostics(figsize=(12, 8))
     diag_fig.suptitle(f"{ticker} Model Diagnostics")
     plt.tight_layout()
+    plt.savefig(f"plots/predictions/{ticker}_model_with_gas_diagnostics.png", dpi=300, bbox_inches='tight')
     plt.show()
 
 # %% [markdown]
