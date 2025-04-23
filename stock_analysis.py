@@ -65,7 +65,7 @@ for symbol, name in oil_tickers_names.items():
     all_data.append(FetchStockData(symbol, name))
 # Concatenate all the individual datasets into one
 stock_data = pd.concat(all_data, ignore_index=True)
-stock_data.to_csv('stock_data.csv', index = False)
+stock_data.to_csv('data/stock_data.csv', index = False)
 
 
 # %% [markdown]
@@ -197,7 +197,7 @@ sns.histplot(stock_data['price_change'].dropna(), bins = 100, kde = True)
 plt.title('Histogram of Daily Price Changes for All Stocks')
 plt.xlabel('Daily Price Change')
 plt.ylabel('Frequency')
-plt.savefig("histogram_of_daily_price_changes_for_all_stocks.png", dpi=300, bbox_inches='tight') 
+plt.savefig("plots/histogram_of_daily_price_changes_for_all_stocks.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
