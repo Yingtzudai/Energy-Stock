@@ -30,16 +30,14 @@ Energy-Stock/
 │
 ├── data/                        # Raw dataset collected from Yahoo Finance (e.g., stock_data.csv)
 │
-├── plots/                       # Visualizations generated during exploratory data analysis
+├── plots/                       # Visualizations generated during analysis
 │   ├── histogram_of_daily_price_changes_for_all_stocks.png
-│   └── ...
+│   ├── correlation_matrix.png
+│   └── predictions/             # Forecast plots from ARIMA models
+│       ├── SHEL_ARIMA_forecast.png
+│       ├── XOM_ARIMA_forecast.png
+│       └── ...
 │
-├── predictions/                 # Forecast plots from ARIMA models
-│   ├── SHEL_ARIMA_forecast.png
-│   ├── XOM_ARIMA_forecast.png
-│   └── ...
-│
-├── get_data.ipynb              # Notebook to collect and preprocess stock and commodity data
 ├── stock_analysis.ipynb        # Main notebook for analysis, modeling, and forecasting
 ├── stock_analysis.py           # Python script version of the main notebook
 ├── requirements.txt            # Python dependencies
