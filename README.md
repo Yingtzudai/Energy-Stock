@@ -74,8 +74,8 @@ energy-stock-analysis/
 
 1. **Clone this repository:**
 ```bash
-git clone https://github.com/yourusername/energy-stock-analysis.git
-cd energy-stock-analysis
+git clone https://github.com/Yingtzudai/Energy-Stock.git
+cd Energy-Stock
 ```
 
 2. **Install dependencies:**
