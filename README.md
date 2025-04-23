@@ -23,16 +23,27 @@ This project analyzes the stock performance of major energy companies and their 
 - `sklearn` — RMSE metric
 - `tqdm` — Progress bar for loops
 
-## 📦 Project Structure
+## 📁 Project Structure
 
-```bash
-energy-stock-analysis/
-├── data/                    # Collected stock and commodity data
-├── visuals/                 # Plots and diagnostic figures
-├── stock_data.csv           # Combined dataset (2021–2025)
-├── Energy_Stock_Analysis.ipynb
-└── README.md
-```
+Energy-Stock/
+│
+├── data/                        # Raw dataset collected from Yahoo Finance (e.g., stock_data.csv)
+│
+├── plots/                       # Visualizations generated during exploratory data analysis
+│   ├── histogram_of_daily_price_changes_for_all_stocks.png
+│   └── ...
+│
+├── predictions/                 # Forecast plots from ARIMA models
+│   ├── SHEL_ARIMA_forecast.png
+│   ├── XOM_ARIMA_forecast.png
+│   └── ...
+│
+├── get_data.ipynb              # Notebook to collect and preprocess stock and commodity data
+├── stock_analysis.ipynb        # Main notebook for analysis, modeling, and forecasting
+├── stock_analysis.py           # Python script version of the main notebook
+├── requirements.txt            # Python dependencies
+├── .gitignore                  # Files to be ignored by Git
+└── README.md                   # Project description and documentation
 
 ## 🧠 Key Features
 
