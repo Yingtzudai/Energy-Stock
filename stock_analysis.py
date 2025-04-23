@@ -93,6 +93,7 @@ plt.title('Stock Prices Over Time')
 plt.xlabel('Date')
 plt.ylabel('Close Price')
 plt.legend(title='Stock Ticker')
+plt.savefig("plots/stock_prices_over_time.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
@@ -102,6 +103,7 @@ plt.title('Trading Volume Over Time')
 plt.xlabel('Date')
 plt.ylabel('Volume')
 plt.legend(title='Stock Ticker')
+plt.savefig("plots/trading_volume_over_time.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
@@ -110,6 +112,7 @@ sns.boxplot(data=stock_data, x='ticker', y='close', hue='ticker')
 plt.title('Distribution of Closing Prices by Stock Symbol')
 plt.xlabel('Stock Ticker')
 plt.ylabel('Close Price')
+plt.savefig("plots/distribution_of_closing_prices_by_stock_symbol.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
@@ -126,6 +129,7 @@ correlation_matrix = pivot_table.corr()
 plt.figure(figsize=(12, 8))
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', linewidths=0.5)
 plt.title('Correlation Matrix of Stock Closing Prices')
+plt.savefig("plots/correlation_matrix_of_stock_closing_prices.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
@@ -137,6 +141,7 @@ plt.title('Stock Prices During 2024')
 plt.xlabel('Date')
 plt.ylabel('Close Price')
 plt.legend(title = 'Stock Ticker')
+plt.savefig("plots/stock_prices_during_2024.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
@@ -150,6 +155,7 @@ plt.xlabel('Month')
 plt.ylabel('Average Close Price')
 plt.xticks(rotation = 30)
 plt.legend(title = 'Stock Ticker')
+plt.savefig("plots/monthly_average_closing_prices.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
@@ -164,6 +170,7 @@ plt.xlabel('Quarter')
 plt.ylabel('Average Close Price')
 plt.xticks(rotation = 45)
 plt.legend(title = 'Stock Ticker')
+plt.savefig("plots/quarterly_average_closing_prices.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
@@ -178,6 +185,7 @@ plt.xlabel('Year')
 plt.ylabel('Average Close Price')
 plt.xticks(ticks=yearly_avg_prices['year'].unique(), rotation=30)
 plt.legend(title = 'Stock Ticker')
+plt.savefig("plots/year_average_closing_prices.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
@@ -189,6 +197,7 @@ sns.histplot(stock_data['price_change'].dropna(), bins = 100, kde = True)
 plt.title('Histogram of Daily Price Changes for All Stocks')
 plt.xlabel('Daily Price Change')
 plt.ylabel('Frequency')
+plt.savefig("histogram_of_daily_price_changes_for_all_stocks.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
@@ -200,6 +209,7 @@ for t in unique_tickers:
     plt.title(f"Histogram of Daily Price Changes for {t}")
     plt.xlabel('Daily Price Change')
     plt.ylabel('Frequency')
+    plt.savefig(f"plots/histogram_of_daily_price_changes_for_{t}.png", dpi=300, bbox_inches='tight') 
     plt.show()
 
 # %%
@@ -211,6 +221,7 @@ sns.barplot(data = volatility, x = 'ticker', y = 'volatility', hue = 'ticker')
 plt.title('Stock Price Volatility')
 plt.xlabel('Stock Ticker')
 plt.ylabel('Volatility (Standard Deviation of Daily Price Changes)')
+plt.savefig("plots/stock_price_volatility.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %%
@@ -219,10 +230,12 @@ yearly_price_change = yearly_price_change.dropna()
 
 plt.figure(figsize=(14, 7))
 sns.lineplot(data = yearly_price_change, x = 'year', y = 'close', hue = 'ticker', marker='o')
+plt.title('Yearly Price Change')
 plt.xlabel('Year')
 plt.ylabel('Percentage Change in Average Close Price')
 plt.xticks(ticks=yearly_price_change['year'].unique()) # Display integer instead of decimal number as year
 plt.legend(title = 'Stock Ticker')
+plt.savefig("plots/yearly_price_change.png", dpi=300, bbox_inches='tight') 
 plt.show()
 
 # %% [markdown]
@@ -360,6 +373,7 @@ for ticker in list(tickers_names.keys()):
     plt.xlabel("Date")
     plt.ylabel('Close Price')
     plt.legend()
+    plt.savefig(f"plots/predictions/{ticker}_ARIMA_model_forecast.png", dpi=300, bbox_inches='tight') 
     plt.show()
 
     diag_fig = results.plot_diagnostics(figsize = (12, 8))
@@ -376,6 +390,8 @@ for ticker in list(tickers_names.keys()):
 # ## Prediction with Train Test Split
 
 # %%
+rmse_dict = {}
+
 for ticker in tickers_names.keys():
     df = stock_data[stock_data['ticker'] == ticker]['close'].copy()
     
@@ -397,6 +413,7 @@ for ticker in tickers_names.keys():
     
     # Calculate RMSE
     rmse = np.sqrt(mean_squared_error(test, forecast_mean))
+    rmse_dict[ticker] = rmse
     print(f"{ticker} RMSE on test set: {rmse:.2f}")
     
     # Plot actual vs forecast
@@ -411,6 +428,7 @@ for ticker in tickers_names.keys():
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    plt.savefig(f"plots/predictions/{ticker}_arima_model_forecast_vs_actual.png", dpi=300, bbox_inches='tight') 
     plt.show()
     
     # Plot diagnostics
@@ -423,6 +441,8 @@ for ticker in tickers_names.keys():
 # ## Prediction with Crude Oil Price Data
 
 # %%
+rmse_oil_dict =  {}
+
 for ticker in tickers_names.keys():
     df = stock_data[stock_data['ticker'] == ticker]['close'].copy()
     
@@ -449,6 +469,7 @@ for ticker in tickers_names.keys():
     
     # Calculate RMSE
     rmse = np.sqrt(mean_squared_error(test, forecast_mean))
+    rmse_oil_dict[ticker] = rmse
     print(f"{ticker} RMSE on test set: {rmse:.2f}")
     
     # Plot actual vs forecast
@@ -463,6 +484,7 @@ for ticker in tickers_names.keys():
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    plt.savefig(f"plots/predictions/{ticker}_arima_model_with_crude_oil_price.png", dpi=300, bbox_inches='tight') 
     plt.show()
     
     # Plot diagnostics
@@ -471,10 +493,16 @@ for ticker in tickers_names.keys():
     plt.tight_layout()
     plt.show()
 
+# %%
+print(rmse_dict)
+print(rmse_oil_dict)
+
 # %% [markdown]
 # ## Prediction with Natural Gas Data
 
 # %%
+rmse_gas_dict = {}
+
 for ticker in tickers_names.keys():
     df = stock_data[stock_data['ticker'] == ticker]['close'].copy()
     
@@ -501,6 +529,7 @@ for ticker in tickers_names.keys():
     
     # Calculate RMSE
     rmse = np.sqrt(mean_squared_error(test, forecast_mean))
+    rmse_gas_dict[ticker] = rmse
     print(f"{ticker} RMSE on test set: {rmse:.2f}")
     
     # Plot actual vs forecast
@@ -515,6 +544,7 @@ for ticker in tickers_names.keys():
     plt.legend()
     plt.grid(True)
     plt.tight_layout()
+    plt.savefig(f"plots/predictions/{ticker}_arima_model_with_natural_gas_price.png", dpi=300, bbox_inches='tight') 
     plt.show()
     
     # Plot diagnostics
@@ -522,5 +552,21 @@ for ticker in tickers_names.keys():
     diag_fig.suptitle(f"{ticker} Model Diagnostics")
     plt.tight_layout()
     plt.show()
+
+# %% [markdown]
+# ## Model Comparison
+
+# %%
+rmse_comparison_df = pd.DataFrame({
+    'ARIMA': rmse_dict,
+    'ARIMA + Crude Oil': rmse_oil_dict,
+    'ARIMA + Natural Gas': rmse_gas_dict
+})
+
+# Optional: Round for cleaner output
+rmse_comparison_df = rmse_comparison_df.round(3)
+
+# Display the matrix
+print(rmse_comparison_df)
 
 
