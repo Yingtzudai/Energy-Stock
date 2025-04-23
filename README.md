@@ -25,6 +25,7 @@ This project analyzes the stock performance of major energy companies and their 
 
 ## 📁 Project Structure
 
+```bash
 Energy-Stock/
 │
 ├── data/                        # Raw dataset collected from Yahoo Finance (e.g., stock_data.csv)
@@ -44,6 +45,7 @@ Energy-Stock/
 ├── requirements.txt            # Python dependencies
 ├── .gitignore                  # Files to be ignored by Git
 └── README.md                   # Project description and documentation
+```
 
 ## 🧠 Key Features
 
