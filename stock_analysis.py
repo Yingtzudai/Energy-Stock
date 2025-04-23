@@ -563,10 +563,7 @@ rmse_comparison_df = pd.DataFrame({
     'ARIMA + Natural Gas': rmse_gas_dict
 })
 
-# Optional: Round for cleaner output
 rmse_comparison_df = rmse_comparison_df.round(3)
-
-# Display the matrix
 print(rmse_comparison_df)
 
 
