@@ -213,7 +213,7 @@ for t in unique_tickers:
     plt.show()
 
 # %%
-volatility = stock_data.groupby('ticker')['price_change'].std().reset_index()
+volatility = stock_data[~stock_data['ticker'].isin(['CL=F','NG=F'])].groupby('ticker')['price_change'].std().reset_index()
 volatility.columns = ['ticker', 'volatility']
 
 plt.figure(figsize = (14, 7))
