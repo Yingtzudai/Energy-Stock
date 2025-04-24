@@ -201,7 +201,7 @@ plt.savefig("plots/histogram_of_daily_price_changes_for_all_stocks.png", dpi=300
 plt.show()
 
 # %%
-unique_tickers = stock_data['ticker'].unique()
+unique_tickers = list(tickers_names.keys())
 
 for t in unique_tickers:
     plt.figure(figsize = (14, 7))
