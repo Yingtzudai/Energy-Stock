@@ -45,6 +45,9 @@ Energy-Stock/
 └── README.md                   # Project description and documentation
 ```
 
+## 🔄 Project Workflow
+![Energy Stock Analysis Workflow](plots/flowchart.jpg)
+
 ## 🧠 Key Features
 
 ### 1. **Data Collection**
