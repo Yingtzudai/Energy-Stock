@@ -69,18 +69,18 @@ Energy-Stock/
 ### 4. **Stationarity Testing**
 - Conducts **ADF test** and visualizes **ACF/PACF** plots to determine differencing order for ARIMA.
 
-### 5. **Forecasting with ARIMA**
+### 5. **Forecasting with ARMA**
 - Fits and evaluates **ARIMA(0,1,0)** models.
 - Forecasts next 30 days of stock prices.
 - Includes:
   - Forecast vs. actual plot with confidence intervals
   - Model diagnostics
 
-### 6. **Train-Test Validation**
+### 6. **ARMA Model with Train-Test Validation**
 - Splits data into 80% train / 20% test.
 - Evaluates model performance using **Root Mean Squared Error (RMSE)**.
 
-### 7. **Incorporating Exogenous Variables**
+### 7. **ARMAX Model**
 - Uses **crude oil** and **natural gas** prices as exogenous inputs (ARIMAX).
 - Compares forecasting performance with and without external variables.
 
