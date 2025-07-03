@@ -28,21 +28,21 @@ This project analyzes the stock performance of major energy companies and their 
 ```bash
 Energy-Stock/
 │
-├── data/                        # Raw dataset collected from Yahoo Finance (e.g., stock_data.csv)
+├── data/                        
 │
-├── plots/                       # Visualizations generated during analysis
+├── plots/                       
 │   ├── histogram_of_daily_price_changes_for_all_stocks.png
 │   ├── correlation_matrix.png
-│   └── predictions/             # Forecast plots from ARIMA models
+│   └── predictions/             
 │       ├── SHEL_ARIMA_forecast.png
 │       ├── XOM_ARIMA_forecast.png
 │       └── ...
 │
-├── stock_analysis.ipynb        # Main notebook for analysis, modeling, and forecasting
-├── stock_analysis.py           # Python script version of the main notebook
-├── requirements.txt            # Python dependencies
-├── .gitignore                  # Files to be ignored by Git
-└── README.md                   # Project description and documentation
+├── stock_analysis.ipynb        
+├── stock_analysis.py           
+├── requirements.txt            
+├── .gitignore                  
+└── README.md                   
 ```
 
 ## 🔄 Project Workflow
